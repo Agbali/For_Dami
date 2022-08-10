@@ -89,7 +89,12 @@ class Message(models.Model):
     def __str__(self):
         return self.title
 
-   
 
+class ContactUs(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)   
+    email = models.CharField(max_length=200, null=True)
+    info = models.TextField(max_length=500, null=True)
+    
 
-                     
+    def __str__(self):
+        return str(self.user)                 
